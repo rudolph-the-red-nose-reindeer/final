@@ -9,107 +9,92 @@
 import UIKit
 
 class ViewController: UIViewController {
-    @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var score: UILabel!
-    @IBOutlet weak var gameStatus: UILabel!
-    @IBOutlet weak var chase: UIButton!
-    let game = model()
-    /* from tictactoe
-    @IBAction func buttonTapped(_ sender: UIButton) {
-        game.update(button: sender.tag)
-        let b = game.grid[sender.tag]
-        if b == .p1 {
-            sender.setImage(UIImage(named: "mark-x"), for: .normal)
-        } else {
-            sender.setImage(UIImage(named: "mark-o"), for: .normal)
-        }
-        game.check()
-        score.text = "Score: \(game.score)"
-        switch game.status {
-        case .p1Wins:
-            gameStatus.textColor = UIColor.green
-            gameStatus.text = "Player 1 Wins!"
-            disableButtons()
-            action.setTitle("Play Again!", for: .normal)
-        case .p2Wins:
-            gameStatus.textColor = UIColor.green
-            gameStatus.text = "Player 2 Wins!"
-            disableButtons()
-            action.setTitle("Play Again!", for: .normal)
-        case .draw:
-            gameStatus.text = "Draw"
-            disableButtons()
-            action.setTitle("Play Again!", for: .normal)        case .p1Turn:
-                gameStatus.text = "Player 1's Turn!"
-        case .p2Turn:
-            gameStatus.text = "Player 2's Turn!"
-        }
-    }
-    
-    @IBAction func clearTap(_ sender: UIButton) {
-        gameStatus.textColor = UIColor.black
-        gameStatus.text = "Player 1's Turn!"
-        for index in 0...8 { collectionOfButtons![index].setImage(UIImage(named: "mark-none"), for: .normal)
-            collectionOfButtons![index].isEnabled = true
-        }
-        action.setTitle("clear", for: .normal)
-        game.reset()
-    }
-    func disableButtons() {
-        for index in 0...8 {
-            collectionOfButtons![index].isEnabled = false
-        }
-    }
-    */
-}
-class model {
-    
-    var caught: Bool = false
-    var score: Int = 0
-    var status: gameState = .over
-    enum gameState{
-        case play
-        case pause
-        case over
-        
-    }
-    
-    func check() -> () {
-        checkOver()
-        checkPaused()
-    }
-    
-    func checkOver() -> () {
-    //if timer is up status = .over
-    }
-    
-    func checkPaused() -> () {
-        //if paused is pressed status = .paused
-        //pause timer
-        //activate play button-countdown before gamestarts?
-        
-    }
-    
-    func update(caught: Bool) {
-        check()
-        if caught {
-            move()
-            caught = false
-        }
-    }
-    
-    func move() {
-        // button.x = math.random() * safe area something
-        //button.y =
-    }
-    
-    func reset() -> () {
-        //set timer to full
-        //status = .over
-        //set play button to active
-    }
+
+    @IBOutlet weak var timerLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var pauseButton: UIButton!
     
 
+    
+    let game = model()
+    
+    override func viewDidLoad() {
+        button.setImage(UIImage(named: "mark-x"), for: .normal)
+        pauseButton.setTitle("pause", for: UIControl.State.normal)
+        game.startTimer()
+        play()
+        
+    }
+    
+    func timeFormatted(_ totalSeconds: Int) -> String {
+        let seconds: Int = totalSeconds % 60
+        let minutes: Int = (totalSeconds / 60) % 60
+        //     let hours: Int = totalSeconds / 3600
+        return String(format: "%02d:%02d", minutes, seconds)
+    }
+    
+    func updateTimeLabel() -> () {
+        timerLabel.text = "\(timeFormatted(game.totalTime))"
+    }
+   
+    
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    {
+        let vc = segue.destination as! gameOver
+        vc.score = game.score
+        vc.difference = game.score - game.highscore
+        vc.highscore = game.highscore
+    }
+    
+    func play() -> () {
+        while true {
+            switch game.status {
+            case .play:
+                scoreLabel.text = "Score: \(game.score)"
+            case .pause: break //stop timer //stop button
+            case .over: performSegue(withIdentifier: "gameOverSegue", sender: self)
+            }
+        }
+    }
+    
+    @IBAction func moveButton(button: UIButton) {
+        game.caught = true
+        let buttonWidth = button.frame.width
+        let buttonHeight = button.frame.height
+
+        let viewWidth = button.superview!.bounds.width
+        let viewHeight = button.superview!.bounds.height + 73
+        
+
+        let xwidth = viewWidth - buttonWidth
+        let yheight = viewHeight - buttonHeight
+        
+
+        let xoffset = CGFloat(arc4random_uniform(UInt32(xwidth)))
+        let yoffset = CGFloat(arc4random_uniform(UInt32(yheight)))
+        
+        button.center.x = xoffset + buttonWidth / 2
+        button.center.y = yoffset + buttonHeight / 2
+    }
+        
+   @IBAction func tappedPause(button: UIButton) {
+    switch game.status {
+    case .play:
+        game.status = model.gameState.pause
+        pauseButton.setTitle("play", for: UIControl.State.normal)
+        button.setImage(UIImage(named: "mark-none"), for: .normal)
+    case .pause:
+        game.status = model.gameState.play
+        pauseButton.setTitle("pause", for: UIControl.State.normal)
+        button.setImage(UIImage(named: "mark-x"), for: .normal)
+    default: break
+    }
+    
+    }
 }
+
 
 

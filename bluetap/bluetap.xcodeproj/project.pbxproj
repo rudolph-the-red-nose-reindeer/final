@@ -15,6 +15,9 @@
 		876A31B6238B13CA0038F49F /* bluetapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A31B5238B13CA0038F49F /* bluetapTests.swift */; };
 		876A31C1238B13CA0038F49F /* bluetapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A31C0238B13CA0038F49F /* bluetapUITests.swift */; };
 		876A31CF238B1D390038F49F /* progress.json in Resources */ = {isa = PBXBuildFile; fileRef = 876A31CE238B1D390038F49F /* progress.json */; };
+		878FD0FF239837AA0050334E /* chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FD0FE239837AA0050334E /* chart.swift */; };
+		878FD101239837F20050334E /* gameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FD100239837F20050334E /* gameOver.swift */; };
+		878FD103239838790050334E /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FD102239838790050334E /* model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		876A31C0238B13CA0038F49F /* bluetapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bluetapUITests.swift; sourceTree = "<group>"; };
 		876A31C2238B13CA0038F49F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		876A31CE238B1D390038F49F /* progress.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = progress.json; sourceTree = "<group>"; };
+		878FD0FE239837AA0050334E /* chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chart.swift; sourceTree = "<group>"; };
+		878FD100239837F20050334E /* gameOver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameOver.swift; sourceTree = "<group>"; };
+		878FD102239838790050334E /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,9 @@
 				876A31A0238B13C80038F49F /* AppDelegate.swift */,
 				876A31A2238B13C80038F49F /* ViewController.swift */,
 				876A31A4238B13C80038F49F /* Main.storyboard */,
+				878FD0FE239837AA0050334E /* chart.swift */,
+				878FD102239838790050334E /* model.swift */,
+				878FD100239837F20050334E /* gameOver.swift */,
 				876A31A7238B13CA0038F49F /* Assets.xcassets */,
 				876A31CE238B1D390038F49F /* progress.json */,
 				876A31A9238B13CA0038F49F /* LaunchScreen.storyboard */,
@@ -260,8 +269,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				878FD103239838790050334E /* model.swift in Sources */,
 				876A31A3238B13C80038F49F /* ViewController.swift in Sources */,
 				876A31A1238B13C80038F49F /* AppDelegate.swift in Sources */,
+				878FD0FF239837AA0050334E /* chart.swift in Sources */,
+				878FD101239837F20050334E /* gameOver.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
