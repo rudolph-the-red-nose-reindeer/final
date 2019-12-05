@@ -14,7 +14,7 @@ protocol ModelDelegate: class {
 }
 
 class Model {
-
+    
     weak var delegate: ModelDelegate!
     static var defaults = UserDefaults.standard
     var caught: Bool = false
@@ -28,14 +28,14 @@ class Model {
         case pause
         case over
     }
-
+    
     struct gamePlay {
         let date: Date
         let score: Int
     }
     
     var scores = [gamePlay]()
-
+    
     func startTimer() {
         status = .play
         delegate.updateTimeLabel()
@@ -63,22 +63,22 @@ class Model {
         }
     }
     
-
+    
     
     func save() -> () {
         
-
+        
         if (score > Model.defaults.integer(forKey: "highscore")) {
             Model.defaults.set(score, forKey: "highscore")
         }
-
+        
         
         if (Model.defaults.object(forKey: formatter.string(from: Date())) == nil) {
             Model.defaults.set(score, forKey: formatter.string(from: Date()))
         } else {
             if (score > Model.defaults.integer(forKey: formatter.string(from: Date()))) {
-        Model.defaults.set(score, forKey: formatter.string(from: Date()))
-    }
+                Model.defaults.set(score, forKey: formatter.string(from: Date()))
+            }
         }
     }
     
@@ -88,7 +88,7 @@ class Model {
             self.caught = false
         }
     }
-
+    
     func reset() -> () {
         score = 0
     }

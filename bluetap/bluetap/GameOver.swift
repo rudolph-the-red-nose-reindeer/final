@@ -10,12 +10,12 @@ import UIKit
 
 class GameOver: UIViewController {
     
-
-
-
+    
+    
+    
     @IBOutlet weak var congrats: UILabel!
     @IBOutlet weak var yourScore: UILabel!
-
+    
     @IBOutlet weak var highScore: UILabel!
     
     
@@ -24,7 +24,7 @@ class GameOver: UIViewController {
     var difference: Int = 0
     var score: Int = 0
     var highscore: Int = 0
-   
+    
     override func viewDidLoad() {
         self.navigationController?.navigationBar.isUserInteractionEnabled = false;
         self.navigationController?.navigationBar.tintColor = UIColor.lightGray;
@@ -44,5 +44,5 @@ class GameOver: UIViewController {
     }
     
     
-        
+    
 }
