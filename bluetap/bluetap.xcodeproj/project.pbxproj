@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6BC3538B92F8E51069A5DE96 /* Pods_bluetapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A45A26F1F89CB3C243A4C11 /* Pods_bluetapTests.framework */; };
 		876A31A1238B13C80038F49F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A31A0238B13C80038F49F /* AppDelegate.swift */; };
 		876A31A3238B13C80038F49F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A31A2238B13C80038F49F /* ViewController.swift */; };
 		876A31A6238B13C80038F49F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 876A31A4238B13C80038F49F /* Main.storyboard */; };
@@ -14,10 +15,11 @@
 		876A31AB238B13CA0038F49F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 876A31A9238B13CA0038F49F /* LaunchScreen.storyboard */; };
 		876A31B6238B13CA0038F49F /* bluetapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A31B5238B13CA0038F49F /* bluetapTests.swift */; };
 		876A31C1238B13CA0038F49F /* bluetapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A31C0238B13CA0038F49F /* bluetapUITests.swift */; };
-		876A31CF238B1D390038F49F /* progress.json in Resources */ = {isa = PBXBuildFile; fileRef = 876A31CE238B1D390038F49F /* progress.json */; };
-		878FD0FF239837AA0050334E /* chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FD0FE239837AA0050334E /* chart.swift */; };
-		878FD101239837F20050334E /* gameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FD100239837F20050334E /* gameOver.swift */; };
-		878FD103239838790050334E /* model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FD102239838790050334E /* model.swift */; };
+		878FD101239837F20050334E /* GameOver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FD100239837F20050334E /* GameOver.swift */; };
+		878FD109239879E80050334E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FD108239879E80050334E /* Model.swift */; };
+		878FD10B23987E0B0050334E /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878FD10A23987E0B0050334E /* Chart.swift */; };
+		CD1466CAC98D51FEDBEB2BF3 /* Pods_bluetap_bluetapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEA2F2D1E303F2E91850BDC6 /* Pods_bluetap_bluetapUITests.framework */; };
+		E21B707F55901B82D001359E /* Pods_bluetap.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 90237D6F7B27EF233402DD0F /* Pods_bluetap.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		055640B00EBAACFFF4B59528 /* Pods-bluetap.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bluetap.debug.xcconfig"; path = "Target Support Files/Pods-bluetap/Pods-bluetap.debug.xcconfig"; sourceTree = "<group>"; };
+		09BCC78A9E31C458973B02B0 /* Pods-bluetapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bluetapTests.release.xcconfig"; path = "Target Support Files/Pods-bluetapTests/Pods-bluetapTests.release.xcconfig"; sourceTree = "<group>"; };
+		38F372736F5253054CDE0779 /* Pods-bluetapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bluetapTests.debug.xcconfig"; path = "Target Support Files/Pods-bluetapTests/Pods-bluetapTests.debug.xcconfig"; sourceTree = "<group>"; };
+		464C53DB7F0BE5DE8FDFE6E7 /* Pods-bluetap-bluetapUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bluetap-bluetapUITests.debug.xcconfig"; path = "Target Support Files/Pods-bluetap-bluetapUITests/Pods-bluetap-bluetapUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		876A319D238B13C80038F49F /* bluetap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bluetap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		876A31A0238B13C80038F49F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		876A31A2238B13C80038F49F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,10 +57,14 @@
 		876A31BC238B13CA0038F49F /* bluetapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = bluetapUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		876A31C0238B13CA0038F49F /* bluetapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bluetapUITests.swift; sourceTree = "<group>"; };
 		876A31C2238B13CA0038F49F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		876A31CE238B1D390038F49F /* progress.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = progress.json; sourceTree = "<group>"; };
-		878FD0FE239837AA0050334E /* chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chart.swift; sourceTree = "<group>"; };
-		878FD100239837F20050334E /* gameOver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gameOver.swift; sourceTree = "<group>"; };
-		878FD102239838790050334E /* model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = model.swift; sourceTree = "<group>"; };
+		878FD100239837F20050334E /* GameOver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOver.swift; sourceTree = "<group>"; };
+		878FD108239879E80050334E /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		878FD10A23987E0B0050334E /* Chart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
+		8A45A26F1F89CB3C243A4C11 /* Pods_bluetapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bluetapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		90237D6F7B27EF233402DD0F /* Pods_bluetap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bluetap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE1D04AE72D5A9AF7DBFC4EF /* Pods-bluetap-bluetapUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bluetap-bluetapUITests.release.xcconfig"; path = "Target Support Files/Pods-bluetap-bluetapUITests/Pods-bluetap-bluetapUITests.release.xcconfig"; sourceTree = "<group>"; };
+		CEA2F2D1E303F2E91850BDC6 /* Pods_bluetap_bluetapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_bluetap_bluetapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA33525F66DCCF342C8F3066 /* Pods-bluetap.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bluetap.release.xcconfig"; path = "Target Support Files/Pods-bluetap/Pods-bluetap.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +72,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E21B707F55901B82D001359E /* Pods_bluetap.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +80,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6BC3538B92F8E51069A5DE96 /* Pods_bluetapTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,12 +88,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD1466CAC98D51FEDBEB2BF3 /* Pods_bluetap_bluetapUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		19F6FE5C839EBFD9CF97F3E4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				90237D6F7B27EF233402DD0F /* Pods_bluetap.framework */,
+				CEA2F2D1E303F2E91850BDC6 /* Pods_bluetap_bluetapUITests.framework */,
+				8A45A26F1F89CB3C243A4C11 /* Pods_bluetapTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4AB34A0726ACD2272051AEC9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				055640B00EBAACFFF4B59528 /* Pods-bluetap.debug.xcconfig */,
+				EA33525F66DCCF342C8F3066 /* Pods-bluetap.release.xcconfig */,
+				464C53DB7F0BE5DE8FDFE6E7 /* Pods-bluetap-bluetapUITests.debug.xcconfig */,
+				BE1D04AE72D5A9AF7DBFC4EF /* Pods-bluetap-bluetapUITests.release.xcconfig */,
+				38F372736F5253054CDE0779 /* Pods-bluetapTests.debug.xcconfig */,
+				09BCC78A9E31C458973B02B0 /* Pods-bluetapTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		876A3194238B13C80038F49F = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +125,8 @@
 				876A31B4238B13CA0038F49F /* bluetapTests */,
 				876A31BF238B13CA0038F49F /* bluetapUITests */,
 				876A319E238B13C80038F49F /* Products */,
+				4AB34A0726ACD2272051AEC9 /* Pods */,
+				19F6FE5C839EBFD9CF97F3E4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,11 +146,10 @@
 				876A31A0238B13C80038F49F /* AppDelegate.swift */,
 				876A31A2238B13C80038F49F /* ViewController.swift */,
 				876A31A4238B13C80038F49F /* Main.storyboard */,
-				878FD0FE239837AA0050334E /* chart.swift */,
-				878FD102239838790050334E /* model.swift */,
-				878FD100239837F20050334E /* gameOver.swift */,
+				878FD10A23987E0B0050334E /* Chart.swift */,
+				878FD100239837F20050334E /* GameOver.swift */,
 				876A31A7238B13CA0038F49F /* Assets.xcassets */,
-				876A31CE238B1D390038F49F /* progress.json */,
+				878FD108239879E80050334E /* Model.swift */,
 				876A31A9238B13CA0038F49F /* LaunchScreen.storyboard */,
 				876A31AC238B13CA0038F49F /* Info.plist */,
 			);
@@ -144,9 +181,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 876A31C5238B13CA0038F49F /* Build configuration list for PBXNativeTarget "bluetap" */;
 			buildPhases = (
+				555D37818FA0759197D77B1E /* [CP] Check Pods Manifest.lock */,
 				876A3199238B13C80038F49F /* Sources */,
 				876A319A238B13C80038F49F /* Frameworks */,
 				876A319B238B13C80038F49F /* Resources */,
+				2D8FFE70A46FCB4527C58B02 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -161,6 +200,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 876A31C8238B13CA0038F49F /* Build configuration list for PBXNativeTarget "bluetapTests" */;
 			buildPhases = (
+				DA53F638175ADBFAAE02E674 /* [CP] Check Pods Manifest.lock */,
 				876A31AD238B13CA0038F49F /* Sources */,
 				876A31AE238B13CA0038F49F /* Frameworks */,
 				876A31AF238B13CA0038F49F /* Resources */,
@@ -179,9 +219,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 876A31CB238B13CA0038F49F /* Build configuration list for PBXNativeTarget "bluetapUITests" */;
 			buildPhases = (
+				11F408423C7F17ACEF8DB285 /* [CP] Check Pods Manifest.lock */,
 				876A31B8238B13CA0038F49F /* Sources */,
 				876A31B9238B13CA0038F49F /* Frameworks */,
 				876A31BA238B13CA0038F49F /* Resources */,
+				68789AF35DB07F5F15B86693 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -242,7 +284,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				876A31AB238B13CA0038F49F /* LaunchScreen.storyboard in Resources */,
-				876A31CF238B1D390038F49F /* progress.json in Resources */,
 				876A31A8238B13CA0038F49F /* Assets.xcassets in Resources */,
 				876A31A6238B13C80038F49F /* Main.storyboard in Resources */,
 			);
@@ -264,16 +305,119 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		11F408423C7F17ACEF8DB285 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-bluetap-bluetapUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2D8FFE70A46FCB4527C58B02 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bluetap/Pods-bluetap-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bluetap/Pods-bluetap-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-bluetap/Pods-bluetap-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		555D37818FA0759197D77B1E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-bluetap-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		68789AF35DB07F5F15B86693 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bluetap-bluetapUITests/Pods-bluetap-bluetapUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-bluetap-bluetapUITests/Pods-bluetap-bluetapUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-bluetap-bluetapUITests/Pods-bluetap-bluetapUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DA53F638175ADBFAAE02E674 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-bluetapTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		876A3199238B13C80038F49F /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				878FD103239838790050334E /* model.swift in Sources */,
 				876A31A3238B13C80038F49F /* ViewController.swift in Sources */,
 				876A31A1238B13C80038F49F /* AppDelegate.swift in Sources */,
-				878FD0FF239837AA0050334E /* chart.swift in Sources */,
-				878FD101239837F20050334E /* gameOver.swift in Sources */,
+				878FD109239879E80050334E /* Model.swift in Sources */,
+				878FD101239837F20050334E /* GameOver.swift in Sources */,
+				878FD10B23987E0B0050334E /* Chart.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +590,7 @@
 		};
 		876A31C6238B13CA0038F49F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 055640B00EBAACFFF4B59528 /* Pods-bluetap.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -463,6 +608,7 @@
 		};
 		876A31C7238B13CA0038F49F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EA33525F66DCCF342C8F3066 /* Pods-bluetap.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -480,6 +626,7 @@
 		};
 		876A31C9238B13CA0038F49F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38F372736F5253054CDE0779 /* Pods-bluetapTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -500,6 +647,7 @@
 		};
 		876A31CA238B13CA0038F49F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 09BCC78A9E31C458973B02B0 /* Pods-bluetapTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -520,6 +668,7 @@
 		};
 		876A31CC238B13CA0038F49F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 464C53DB7F0BE5DE8FDFE6E7 /* Pods-bluetap-bluetapUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -539,6 +688,7 @@
 		};
 		876A31CD238B13CA0038F49F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BE1D04AE72D5A9AF7DBFC4EF /* Pods-bluetap-bluetapUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

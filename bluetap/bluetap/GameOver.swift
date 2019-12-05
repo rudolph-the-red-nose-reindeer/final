@@ -8,12 +8,14 @@
 
 import UIKit
 
-class gameOver: UIViewController {
+class GameOver: UIViewController {
     
-    @IBOutlet weak var congrats: UILabel!
 
+
+
+    @IBOutlet weak var congrats: UILabel!
     @IBOutlet weak var yourScore: UILabel!
-    
+
     @IBOutlet weak var highScore: UILabel!
     
     
@@ -24,6 +26,10 @@ class gameOver: UIViewController {
     var highscore: Int = 0
    
     override func viewDidLoad() {
+        self.navigationController?.navigationBar.isUserInteractionEnabled = false;
+        self.navigationController?.navigationBar.tintColor = UIColor.lightGray;
+        highscore = Model.defaults.integer(forKey: "highscore")
+        difference = score - highscore
         yourScore.text = "Score: \(score)"
         highScore.text = "Highscore: \(highscore)"
         if (difference > 0) {

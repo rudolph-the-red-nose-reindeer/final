@@ -8,14 +8,20 @@
 
 import UIKit
 
-class model {
-    
-    let defaults = UserDefaults.standard
+protocol ModelDelegate: class {
+    func isOver()
+    func updateTimeLabel()
+}
+
+class Model {
+
+    weak var delegate: ModelDelegate!
+    static var defaults = UserDefaults.standard
     var caught: Bool = false
     var countdownTimer: Timer!
-    var totalTime = 60
+    var totalTime = 10
     var score: Int = 0
-    var highscore: Int = 0
+    var formatter: DateFormatter = DateFormatter()
     var status: gameState = .over
     enum gameState{
         case play
@@ -23,12 +29,23 @@ class model {
         case over
     }
 
-
+    struct gamePlay {
+        let date: Date
+        let score: Int
+    }
+    
+    var scores = [gamePlay]()
 
     func startTimer() {
+        status = .play
+        delegate.updateTimeLabel()
         countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
     }
     func endTimer() {
+        delegate.isOver()
+        status = .over
+        save()
+        reset()
         countdownTimer.invalidate()
     }
     
@@ -37,6 +54,7 @@ class model {
         case .play:
             if totalTime != 0 {
                 totalTime -= 1
+                delegate.updateTimeLabel()
             } else {
                 endTimer()
             }
@@ -45,29 +63,26 @@ class model {
         }
     }
     
-    func checkOver() -> () {
-        if (totalTime == 0) {
-            status = .over
-            save()
-            reset()
-        }
-        
-    }
+
     
     func save() -> () {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
         
-        let myString = formatter.string(from: Date())
-        let yourDate = formatter.date(from: myString)
-        formatter.dateFormat = "dd-MM-yyyy"
-        let myStringafd = formatter.string(from: yourDate!)
+
+        if (score > Model.defaults.integer(forKey: "highscore")) {
+            Model.defaults.set(score, forKey: "highscore")
+        }
+
         
-        defaults.set(score, forKey: myStringafd)
+        if (Model.defaults.object(forKey: formatter.string(from: Date())) == nil) {
+            Model.defaults.set(score, forKey: formatter.string(from: Date()))
+        } else {
+            if (score > Model.defaults.integer(forKey: formatter.string(from: Date()))) {
+        Model.defaults.set(score, forKey: formatter.string(from: Date()))
+    }
+        }
     }
     
-    func update(caught: Bool) {
-        checkOver()
+    func update() {
         if caught {
             score = score + 1
             self.caught = false
@@ -80,3 +95,4 @@ class model {
     
     
 }
+

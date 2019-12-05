@@ -1,0 +1,20 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'bluetap' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for bluetap
+pod 'Charts' 
+
+  target 'bluetapTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'bluetapUITests' do
+    # Pods for testing
+  end
+
+end

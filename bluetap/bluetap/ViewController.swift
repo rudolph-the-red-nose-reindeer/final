@@ -8,22 +8,30 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, ModelDelegate {
 
+    func isOver() {
+        performSegue(withIdentifier: "gameOverSegue", sender: self)
+    }
+    
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
-    @IBOutlet weak var button: UIButton!
+    @IBOutlet weak var chaseButton: UIButton!
+
     @IBOutlet weak var pauseButton: UIButton!
     
 
     
-    let game = model()
+    let game = Model()
     
     override func viewDidLoad() {
-        button.setImage(UIImage(named: "mark-x"), for: .normal)
+        game.delegate = self
+        chaseButton.setImage(UIImage(named: "mark-x"), for: .normal)
         pauseButton.setTitle("pause", for: UIControl.State.normal)
         game.startTimer()
-        play()
+        scoreLabel.text = "Score: \(game.score)"
+        self.navigationController?.navigationBar.isUserInteractionEnabled = false;
+        self.navigationController?.navigationBar.tintColor = UIColor.lightGray;
         
     }
     
@@ -43,31 +51,20 @@ class ViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        let vc = segue.destination as! gameOver
+        let vc = segue.destination as! GameOver
         vc.score = game.score
-        vc.difference = game.score - game.highscore
-        vc.highscore = game.highscore
     }
     
-    func play() -> () {
-        while true {
-            switch game.status {
-            case .play:
-                scoreLabel.text = "Score: \(game.score)"
-            case .pause: break //stop timer //stop button
-            case .over: performSegue(withIdentifier: "gameOverSegue", sender: self)
-            }
-        }
-    }
     
     @IBAction func moveButton(button: UIButton) {
         game.caught = true
+        game.update()
+        scoreLabel.text = "Score: \(game.score)"
         let buttonWidth = button.frame.width
         let buttonHeight = button.frame.height
 
         let viewWidth = button.superview!.bounds.width
-        let viewHeight = button.superview!.bounds.height + 73
-        
+        let viewHeight = button.superview!.bounds.height - button.superview!.safeAreaInsets.top - button.superview!.safeAreaInsets.bottom - 100
 
         let xwidth = viewWidth - buttonWidth
         let yheight = viewHeight - buttonHeight
@@ -77,19 +74,22 @@ class ViewController: UIViewController {
         let yoffset = CGFloat(arc4random_uniform(UInt32(yheight)))
         
         button.center.x = xoffset + buttonWidth / 2
-        button.center.y = yoffset + buttonHeight / 2
+        button.center.y = button.superview!.safeAreaInsets.bottom + 100 + yoffset + buttonHeight / 2
     }
         
    @IBAction func tappedPause(button: UIButton) {
     switch game.status {
     case .play:
-        game.status = model.gameState.pause
+        chaseButton.isEnabled = false
+        game.status = Model.gameState.pause
         pauseButton.setTitle("play", for: UIControl.State.normal)
-        button.setImage(UIImage(named: "mark-none"), for: .normal)
+        //button.setImage(UIImage(named: "mark-none"), for: .normal)
+        
     case .pause:
-        game.status = model.gameState.play
+        game.status = Model.gameState.play
         pauseButton.setTitle("pause", for: UIControl.State.normal)
-        button.setImage(UIImage(named: "mark-x"), for: .normal)
+        chaseButton.setImage(UIImage(named: "mark-x"), for: .normal)
+        chaseButton.isEnabled = true
     default: break
     }
     

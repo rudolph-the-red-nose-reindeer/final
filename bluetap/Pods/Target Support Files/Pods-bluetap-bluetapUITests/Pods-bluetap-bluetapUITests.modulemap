@@ -1,0 +1,6 @@
+framework module Pods_bluetap_bluetapUITests {
+  umbrella header "Pods-bluetap-bluetapUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

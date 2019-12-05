@@ -1,0 +1,6 @@
+framework module Pods_bluetap {
+  umbrella header "Pods-bluetap-umbrella.h"
+
+  export *
+  module * { export * }
+}
