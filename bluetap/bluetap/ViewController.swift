@@ -91,6 +91,8 @@ class ViewController: UIViewController, ModelDelegate {
     }
     
     func moveButton() -> () {
+        tapEffect?.stop()
+        tingEffect?.stop()
         tingEffect?.play()
         scoreLabel.text = "Score: \(game.score)"
         let buttonWidth = chaseButton.frame.width
@@ -111,7 +113,9 @@ class ViewController: UIViewController, ModelDelegate {
     }
     
     @IBAction func tappedRestartButton(button: UIButton) {
-        
+        chaseButton.isEnabled = false
+        tapEffect?.stop()
+        tingEffect?.stop()
         tapEffect?.play()
         game.status = Model.gameState.restartCount
         game.startThreeSecTimer()
@@ -119,6 +123,8 @@ class ViewController: UIViewController, ModelDelegate {
     }
     
     @IBAction func tappedPause(button: UIButton) {
+        tapEffect?.stop()
+        tingEffect?.stop()
         tapEffect?.play()
         switch game.status {
         case .play:

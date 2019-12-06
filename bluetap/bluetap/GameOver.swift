@@ -29,7 +29,7 @@ class GameOver: UIViewController {
         difference = score - highscore
         yourScore.text = "Score: \(score)"
         highScore.text = "Highscore: \(highscore)"
-        if (difference > 0) {
+        if (difference == 0) {
             congrats.text = "yay, you beat your highscore!!"
         } else if (difference > -5) {
             congrats.text = "oof, so close to beating your highscore"

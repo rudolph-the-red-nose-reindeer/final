@@ -50,7 +50,7 @@ class Model {
     }
     
     func startTimer() {
-        totalTime = 12
+        totalTime = 20
         
         delegate.updateTimeLabel()
         countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
@@ -83,7 +83,7 @@ class Model {
     
     func save() -> () {
         
-        
+        formatter.dateFormat = "yyyy-MM-dd"
         if (score > Model.defaults.integer(forKey: "highscore")) {
             Model.defaults.set(score, forKey: "highscore")
         }
@@ -96,6 +96,7 @@ class Model {
                 Model.defaults.set(score, forKey: formatter.string(from: Date()))
             }
         }
+        reset()
     }
     
     func update() {
@@ -122,7 +123,6 @@ class Model {
             delegate.isOver()
             status = .over
             save()
-            reset()
             
         case .pauseCount, .restartCount:
             breakTimer.invalidate()
@@ -133,6 +133,4 @@ class Model {
         }
         
     }
-    
 }
-

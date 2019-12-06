@@ -21,6 +21,7 @@ class Chart: UIViewController {
     var formatter = DateFormatter()
     
     override func viewDidLoad() {
+        
         decorButton1.setImage(UIImage(named: "mark-x"), for: .normal)
         
         yAxisLabel.transform = CGAffineTransform(rotationAngle: -3.14/2)
@@ -81,6 +82,7 @@ class Chart: UIViewController {
             }
             
             lineChartEntry.sort(by: { $0.x < $1.x })
+
             for index in 1...lineChartEntry.count {
                 dates.append(intToDateString(days: index))
             }
@@ -98,7 +100,8 @@ class Chart: UIViewController {
             chtChart.xAxis.granularity = 1.0
             chtChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: dates)
             chtChart.xAxis.labelPosition = XAxis.LabelPosition.bottom
-            
+            chtChart.xAxis.labelRotationAngle = -90
+            chtChart.extraBottomOffset = 45
             progressLabel.text = "How have we been doing?"
         }
     }
