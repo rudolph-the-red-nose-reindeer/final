@@ -10,22 +10,23 @@ import UIKit
 import Charts
 
 class Chart: UIViewController {
+    
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var decorButton1: UIButton!
     @IBOutlet weak var chtChart: LineChartView!
     @IBOutlet weak var highscoreLabel: UILabel!
     @IBOutlet weak var yAxisLabel: UILabel!
+    
     var status: Model.gameState = .over
+    var formatter = DateFormatter()
     
     override func viewDidLoad() {
         decorButton1.setImage(UIImage(named: "mark-x"), for: .normal)
         
         yAxisLabel.transform = CGAffineTransform(rotationAngle: -3.14/2)
-        let formatter = DateFormatter()
         formatter.dateFormat = "yyyy/MM/dd"
         let someDateTime = formatter.date(from: "2019/12/01")
         Model.defaults.set(someDateTime, forKey: "startDate")
-        formatter.dateFormat = "yyyy-MM-dd"
         if (Model.defaults.object(forKey: "highscore") == nil) {
             Model.defaults.set(0, forKey: "highscore")
             Model.defaults.set(Date(), forKey: "startDate")
@@ -49,8 +50,7 @@ class Chart: UIViewController {
         
         var lineChartEntry = [ChartDataEntry]()
         var dates = [String]()
-        
-        
+
         if (Model.defaults.dictionaryRepresentation().count == 12) {
             progressLabel.text = "We'll track your progress here, good luck! :)"
         } else {
@@ -73,13 +73,13 @@ class Chart: UIViewController {
                         let interval: Int = Int(date.timeIntervalSince(startDate) / (3600 * 24))
                         
                         let value = ChartDataEntry(x: Double(interval), y: value as! Double)
-
+                        
                         lineChartEntry.append(value)
                         
                     }
                 }
             }
-
+            
             lineChartEntry.sort(by: { $0.x < $1.x })
             for index in 1...lineChartEntry.count {
                 dates.append(intToDateString(days: index))
@@ -96,7 +96,7 @@ class Chart: UIViewController {
             chtChart.xAxis.drawGridLinesEnabled = true
             chtChart.xAxis.granularityEnabled = true
             chtChart.xAxis.granularity = 1.0
-            chtChart.xAxis.valueFormatter = IndexAxisValueFormatter(values:dates)
+            chtChart.xAxis.valueFormatter = IndexAxisValueFormatter(values: dates)
             chtChart.xAxis.labelPosition = XAxis.LabelPosition.bottom
             
             progressLabel.text = "How have we been doing?"
@@ -107,8 +107,6 @@ class Chart: UIViewController {
         let daysToAdd = days - 1
         let startDate = Model.defaults.object(forKey: "startDate") as! Date
         let newDate = Calendar.current.date(byAdding: .day, value: daysToAdd, to: startDate)
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
         return formatter.string(from: newDate!)
     }
 }
@@ -119,7 +117,7 @@ extension Date {
         dateStringFormatter.dateFormat = "yyyy-MM-dd"
         dateStringFormatter.locale = NSLocale(localeIdentifier: "en_US_POSIX") as Locale
         let date = dateStringFormatter.date(from: dateString)!
-        self.init(timeInterval:0, since:date)
+        self.init(timeInterval: 0, since: date)
     }
 }
 

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		6BC3538B92F8E51069A5DE96 /* Pods_bluetapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A45A26F1F89CB3C243A4C11 /* Pods_bluetapTests.framework */; };
+		873572122399EA13007CB2B0 /* sound82.wav in Resources */ = {isa = PBXBuildFile; fileRef = 873572112399EA12007CB2B0 /* sound82.wav */; };
+		873572142399EA1A007CB2B0 /* sound99.wav in Resources */ = {isa = PBXBuildFile; fileRef = 873572132399EA1A007CB2B0 /* sound99.wav */; };
 		876A31A1238B13C80038F49F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A31A0238B13C80038F49F /* AppDelegate.swift */; };
 		876A31A3238B13C80038F49F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 876A31A2238B13C80038F49F /* ViewController.swift */; };
 		876A31A6238B13C80038F49F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 876A31A4238B13C80038F49F /* Main.storyboard */; };
@@ -44,6 +46,8 @@
 		09BCC78A9E31C458973B02B0 /* Pods-bluetapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bluetapTests.release.xcconfig"; path = "Target Support Files/Pods-bluetapTests/Pods-bluetapTests.release.xcconfig"; sourceTree = "<group>"; };
 		38F372736F5253054CDE0779 /* Pods-bluetapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bluetapTests.debug.xcconfig"; path = "Target Support Files/Pods-bluetapTests/Pods-bluetapTests.debug.xcconfig"; sourceTree = "<group>"; };
 		464C53DB7F0BE5DE8FDFE6E7 /* Pods-bluetap-bluetapUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-bluetap-bluetapUITests.debug.xcconfig"; path = "Target Support Files/Pods-bluetap-bluetapUITests/Pods-bluetap-bluetapUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		873572112399EA12007CB2B0 /* sound82.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound82.wav; sourceTree = "<group>"; };
+		873572132399EA1A007CB2B0 /* sound99.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = sound99.wav; sourceTree = "<group>"; };
 		876A319D238B13C80038F49F /* bluetap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bluetap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		876A31A0238B13C80038F49F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		876A31A2238B13C80038F49F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +151,8 @@
 				876A31A2238B13C80038F49F /* ViewController.swift */,
 				876A31A4238B13C80038F49F /* Main.storyboard */,
 				878FD10A23987E0B0050334E /* Chart.swift */,
+				873572112399EA12007CB2B0 /* sound82.wav */,
+				873572132399EA1A007CB2B0 /* sound99.wav */,
 				878FD100239837F20050334E /* GameOver.swift */,
 				876A31A7238B13CA0038F49F /* Assets.xcassets */,
 				878FD108239879E80050334E /* Model.swift */,
@@ -285,6 +291,8 @@
 			files = (
 				876A31AB238B13CA0038F49F /* LaunchScreen.storyboard in Resources */,
 				876A31A8238B13CA0038F49F /* Assets.xcassets in Resources */,
+				873572142399EA1A007CB2B0 /* sound99.wav in Resources */,
+				873572122399EA13007CB2B0 /* sound82.wav in Resources */,
 				876A31A6238B13C80038F49F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
