@@ -10,31 +10,27 @@ import UIKit
 import AVFoundation
 
 class ViewController: UIViewController, ModelDelegate {
-        
+    
+
+    @IBOutlet weak var statusLabel: UILabel!
     @IBOutlet weak var breakLabel: UILabel!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var chaseButton: UIButton!
     @IBOutlet weak var pauseButton: UIButton!
+    @IBOutlet weak var restartButton: UIButton!
     
-    let game = Model()
     var tapEffect: AVAudioPlayer?
     var tingEffect: AVAudioPlayer?
     
+
+    
+    let game = Model()
+    
     
     override func viewDidLoad() {
-        let path1 = Bundle.main.path(forResource: "sound82.wav", ofType: nil)!
-        let url1 = URL(fileURLWithPath: path1)
-        let path2 = Bundle.main.path(forResource: "sound99.wav", ofType: nil)!
-        let url2 = URL(fileURLWithPath: path2)
-        do {
-            tapEffect = try AVAudioPlayer(contentsOf: url1)
-        } catch {
-        }
-        do {
-            tingEffect = try AVAudioPlayer(contentsOf: url2)
-        } catch {
-        }
+        playTap()
+        statusLabel.text = ""
         game.delegate = self
         chaseButton.setImage(UIImage(named: "mark-x"), for: .normal)
         pauseButton.setImage(UIImage(named: "iconfinder_button-pause_blue_68685"), for: .normal)
@@ -62,17 +58,18 @@ class ViewController: UIViewController, ModelDelegate {
     }
     
     func updateBreakLabel() -> () {
+        statusLabel.text = "Get Ready!"
         breakLabel.text = "\(game.breakTime)"
     }
     
     func breakOver() {
+        statusLabel.text = ""
         breakLabel.text = ""
-        if (game.status == Model.gameState.restartCount) {
-            game.reset()
-            game.startTimer()
+        if (game.status == Model.gameState.restartCount) {       
             moveButton()
         }
-        
+        pauseButton.isEnabled = true
+        restartButton.isEnabled = true
         game.status = Model.gameState.play
         pauseButton.setImage(UIImage(named: "iconfinder_button-pause_blue_68685"), for: .normal)
         chaseButton.isEnabled = true
@@ -84,6 +81,7 @@ class ViewController: UIViewController, ModelDelegate {
         vc.score = game.score
     }
     @IBAction func tappedButton(button: UIButton) {
+        playTing()
         game.caught = true
         game.update()
         moveButton()
@@ -91,9 +89,6 @@ class ViewController: UIViewController, ModelDelegate {
     }
     
     func moveButton() -> () {
-        tapEffect?.stop()
-        tingEffect?.stop()
-        tingEffect?.play()
         scoreLabel.text = "Score: \(game.score)"
         let buttonWidth = chaseButton.frame.width
         let buttonHeight = chaseButton.frame.height
@@ -114,18 +109,17 @@ class ViewController: UIViewController, ModelDelegate {
     
     @IBAction func tappedRestartButton(button: UIButton) {
         chaseButton.isEnabled = false
-        tapEffect?.stop()
-        tingEffect?.stop()
-        tapEffect?.play()
+        pauseButton.isEnabled = false
+        playTap()
         game.status = Model.gameState.restartCount
-        game.startThreeSecTimer()
+        game.startTimer()
         
     }
     
     @IBAction func tappedPause(button: UIButton) {
-        tapEffect?.stop()
-        tingEffect?.stop()
-        tapEffect?.play()
+        statusLabel.text = "Paused"
+        restartButton.isEnabled = false
+        playTap()
         switch game.status {
         case .play:
             chaseButton.isEnabled = false
@@ -134,11 +128,35 @@ class ViewController: UIViewController, ModelDelegate {
             
         case .pause:
             game.status = Model.gameState.pauseCount
-            game.startThreeSecTimer()
+            game.startTimer()
             
         default: break
         }
     }
+    
+    func playTap() ->() {
+        
+        let path = Bundle.main.path(forResource: "sound82", ofType: "wav")!
+        let url = URL(fileURLWithPath: path)
+        do {
+            tapEffect = try AVAudioPlayer(contentsOf: url)
+            tapEffect?.play()
+        } catch {}
+        
+    }
+    
+    func playTing() ->() {
+        
+        let path = Bundle.main.path(forResource: "sound99", ofType: "wav")!
+        let url = URL(fileURLWithPath: path)
+        do {
+            tingEffect = try AVAudioPlayer(contentsOf: url
+            )
+            tingEffect?.play()
+        } catch {}
+        
+    }
+    
 }
 
 

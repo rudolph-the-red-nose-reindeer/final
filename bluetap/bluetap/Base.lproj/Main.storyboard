@@ -138,8 +138,11 @@
                                     <action selector="tappedPauseWithButton:" destination="xm7-Vm-Shf" eventType="touchUpInside" id="iP3-m1-N0j"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fb-Xx-mkz">
-                                <rect key="frame" x="268" y="73" width="44" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timer" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fb-Xx-mkz">
+                                <rect key="frame" x="262" y="73" width="50" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="Kc4-Ap-ygS"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -175,11 +178,19 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Zx-gT-IlJ">
+                                <rect key="frame" x="172.5" y="134" width="69" height="32"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="7Zx-gT-IlJ" firstAttribute="centerX" secondItem="ZQL-i7-RQu" secondAttribute="centerX" id="3XK-rI-dQm"/>
                             <constraint firstItem="Y6m-Lw-ynG" firstAttribute="centerY" secondItem="ZQL-i7-RQu" secondAttribute="centerY" id="7EJ-Av-tg4"/>
                             <constraint firstItem="tpW-qT-FtF" firstAttribute="leading" secondItem="ClC-Up-1zc" secondAttribute="trailing" constant="26" id="8mQ-6r-Drw"/>
+                            <constraint firstItem="7Zx-gT-IlJ" firstAttribute="top" secondItem="4s7-cF-Qdj" secondAttribute="top" constant="90" id="Hpe-Y1-Ecc"/>
                             <constraint firstItem="4s7-cF-Qdj" firstAttribute="trailing" secondItem="7iT-NL-6QM" secondAttribute="trailing" constant="21" id="MjU-hp-ajE"/>
                             <constraint firstItem="7iT-NL-6QM" firstAttribute="top" secondItem="4s7-cF-Qdj" secondAttribute="top" constant="15.5" id="N20-kB-5nD"/>
                             <constraint firstItem="ClC-Up-1zc" firstAttribute="leading" secondItem="4s7-cF-Qdj" secondAttribute="leading" constant="30" id="UDK-dy-BAz"/>
@@ -196,7 +207,9 @@
                         <outlet property="breakLabel" destination="Y6m-Lw-ynG" id="m5b-ay-bhN"/>
                         <outlet property="chaseButton" destination="Ngp-ui-RKv" id="cCs-eX-4Ky"/>
                         <outlet property="pauseButton" destination="7iT-NL-6QM" id="L0O-Lh-f7A"/>
+                        <outlet property="restartButton" destination="ClC-Up-1zc" id="LmN-Pm-LNa"/>
                         <outlet property="scoreLabel" destination="tpW-qT-FtF" id="b2L-HG-NsU"/>
+                        <outlet property="statusLabel" destination="7Zx-gT-IlJ" id="ieT-Wc-XUw"/>
                         <outlet property="timerLabel" destination="1fb-Xx-mkz" id="wfu-Om-g1m"/>
                         <segue destination="JSd-Om-9Vp" kind="show" identifier="gameOverSegue" id="QgT-39-pgz"/>
                     </connections>
@@ -298,7 +311,8 @@
         <image name="restart" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="o60-Ko-BkH"/>
+        <segue reference="QgT-39-pgz"/>
+        <segue reference="NdR-4w-e71"/>
         <segue reference="0iC-EU-87J"/>
     </inferredMetricsTieBreakers>
 </document>

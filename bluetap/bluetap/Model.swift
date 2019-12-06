@@ -21,9 +21,8 @@ class Model {
     static var defaults = UserDefaults.standard
     var caught: Bool = false
     var countdownTimer: Timer!
-    var breakTimer: Timer!
-    var totalTime: Int = 0
-    var breakTime: Int = 0
+    var totalTime: Int = 20
+    var breakTime: Int = 3
     var score: Int = 0
     var formatter: DateFormatter = DateFormatter()
     var status: gameState = .over
@@ -42,19 +41,25 @@ class Model {
     
     var scores = [gamePlay]()
     
-    func startThreeSecTimer() {
-        breakTime = 3
-        delegate.updateBreakLabel()
-        breakTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+    func startTimer() {
+        if (countdownTimer != nil) {
+            countdownTimer.invalidate()
+        }
+        countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
+        switch status {
+        case .play:
+            delegate.updateTimeLabel()
+        case .pauseCount, .restartCount:
+            
+            delegate.updateBreakLabel()
+            
+        default:
+            break
+        }
         
     }
     
-    func startTimer() {
-        totalTime = 20
-        
-        delegate.updateTimeLabel()
-        countdownTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTime), userInfo: nil, repeats: true)
-    }
+    
     
     
     @objc func updateTime() {
@@ -73,11 +78,14 @@ class Model {
             } else {
                 endTimer()
             }
-            
         default:
             break
         }
+        
     }
+    
+    
+    
     
     
     
@@ -96,7 +104,6 @@ class Model {
                 Model.defaults.set(score, forKey: formatter.string(from: Date()))
             }
         }
-        reset()
     }
     
     func update() {
@@ -106,28 +113,40 @@ class Model {
         }
     }
     
-    func reset() -> () {
-        if (countdownTimer != nil) {
-            countdownTimer.invalidate()
-        }
-        if (breakTimer != nil) {
-            breakTimer.invalidate()
-        }
+    func resetGame() -> () {
         score = 0
-        
+        totalTime = 20
     }
     
+    func resetBreakTime() -> () {
+        breakTime = 3
+    }
+    
+    
     func endTimer() {
+        
         switch status {
         case .play:
             delegate.isOver()
             status = .over
             save()
+            resetGame()
+            resetBreakTime()
             
-        case .pauseCount, .restartCount:
-            breakTimer.invalidate()
+            
+        case .pauseCount:
             delegate.breakOver()
+            status = .play
+            resetBreakTime()
+            startTimer()
             
+            
+        case .restartCount:
+            delegate.breakOver()
+            status = .play
+            resetGame()
+            resetBreakTime()
+            startTimer()
         default:
             break
         }
